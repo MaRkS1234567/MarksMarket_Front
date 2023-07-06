@@ -1,0 +1,54 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="root">
+        <header class="pb-3 p-3 d-flex">
+            <button class="home"><svg width="54px" height="54px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#8400ff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.144"></g><g id="SVGRepo_iconCarrier"> <path d="M19 9L19 17C19 18.8856 19 19.8284 18.4142 20.4142C17.8284 21 16.8856 21 15 21L14 21L10 21L9 21C7.11438 21 6.17157 21 5.58579 20.4142C5 19.8284 5 18.8856 5 17L5 9" stroke="#6400c2" stroke-width="2" stroke-linejoin="round"></path> <path d="M3 11L7.5 7L10.6713 4.18109C11.429 3.50752 12.571 3.50752 13.3287 4.18109L16.5 7L21 11" stroke="#6400c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M10 21V17C10 15.8954 10.8954 15 12 15V15C13.1046 15 14 15.8954 14 17V21" stroke="#6400c2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+            <a class="logo" href="/">MARKS</a>
+            <a style="margin-right: 15px; margin-left: auto; margin-top: auto; margin-bottom: auto; border-radius: 50%; border: 4px solid #6400c2;" href="{% url 'account' %}"><img src="static/main/img/ava.png" class="" width="50" height="50"/></a>
+        </header>
+        <div class="d-flex"></div>
+            <a href="{% url 'shop' %}" class="fragment-l">Наш магазин</a>
+            <a href="{% url 'trade' %}" class="fragment-r">Рынок вещей</a>
+        </div>
+        <!-- <header class="d-flex flex-column flex-md-row align-items-center pb-1 border-bottom p-1">
+            <nav class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 d-inline-flex mt-2 mt-md-0 ms-md-auto nstyle">
+                <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'home' %}nav-link-active{% endif %}" href="{% url 'home' %}">Главная</a>
+                <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'home' %}nav-link-active{% endif %}" href="{% url 'shop' %}">Магазин</a>
+                <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'trade' %}nav-link-active{% endif %}" href="{% url 'trade' %}">Рынок</a>
+                <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'chats' %}nav-link-active{% endif %}" href="{% url 'chats' %}">Чаты</a>
+            </nav>
+        </header> -->
+
+        <main>
+            <div class="container">
+                {% block content %}{% endblock %}
+            </div>
+             <div class="container">
+                {% block content2 %}{% endblock %}
+            </div>
+        </main>
+    </div>
+    <div id="root2">
+        <!-- <footer  class="d-flex flex-wrap justify-content-between align-items-center py-3 mb-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+               </div> -->
+        </footer>
+    </div>
+
+    <script src="{% static 'main/js/main.js' %}"></script>
+</body>
+</html>
