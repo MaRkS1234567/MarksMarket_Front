@@ -1,4 +1,4 @@
-{% load static %}
+{% load sass_tags %}
 <!doctype html>
 <html lang="ru">
 <head>
@@ -8,27 +8,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link href="{% sass_src 'main/css/main.scss' %}" rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapiscom/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <img class="activator imger2" id="activator" src="static/main/img/ava.jpeg" alt="">
+        <nav>
+            <ul>
+                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#bell"></a></li>
+                <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#beaker"></a></li>
+                <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#chat"></a></li>
+                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#cloud-download"></a></li>
+                <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#cog"></a></li>
+            </ul>
+        </nav>
+    </header><br>
     <div id="root">
-        <header class="pb-4 p-3 d-flex">
-            <div style="max-width: 64px; max-height: 64px; margin-left: 28;">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
+        <!-- <header class="pb-4 p-3 d-flex">
+            <button id="toggle" style="width: 64px; height: 64px; margin-left: 28; border-color: white; background: white;">
+            </button>
             <a class="logo" href="/">MARKS</a>
             <a href="{% url 'account' %}"><img src="static/main/img/ava.jpeg" class="ava" width="66" height="66"/></a>
-        </header>
+        </header> -->
         <div class="d-flex"></div>
             <a href="{% url 'shop' %}" class="fragment-l">Магазин</a>
             <a href="{% url 'trade' %}" class="fragment-r">Рынок</a>
         </div>
-        <!-- <header class="d-flex flex-column flex-md-row align-items-center pb-1 border-bottom p-1">
+        <!-- <header class="d-flex hidAll flex-column flex-md-row align-items-center pb-1 border-bottom p-1">
             <nav class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 d-inline-flex mt-2 mt-md-0 ms-md-auto nstyle">
                 <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'home' %}nav-link-active{% endif %}" href="{% url 'home' %}">Главная</a>
                 <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'home' %}nav-link-active{% endif %}" href="{% url 'shop' %}">Магазин</a>
@@ -46,15 +55,53 @@
             </div>
         </main>
     </div>
-    <div id="root2">
+    <!-- <div id="root2">
         <footer>
             <div class="footer">
                 Something about
             </div>
             <div style="height: 15px;"></div>
         </footer>
-    </div>
+    </div> -->
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12/dist/gsap.min.js"></script>
+    <script>
+        
+        var card = document.getElementById('activator');
+        var tl = gsap.timeline({defaults: {ease: "power2.inOut"}})
 
-    <script src="{% static 'main/js/main.js' %}"></script>
+        var toggle = false;
+        
+        tl.to('.activator', {
+            // background: '#C940FC',
+            // 'borderRadius': '8px 0 0 8px',
+            // 'box-shadow': '-4px 4px 0px 0px #fff',
+            'border': '4px solid #fff'
+        });
+        tl.to('nav', {
+            'clipPath': 'ellipse(100% 100% at 50% 50%)',
+            'box-shadow': '-4px 4px #C940FC'
+        }, "-=.5")
+        tl.to('nav img', {
+            opacity: 1,
+            transform: 'translateX(0)',
+            stagger: .05
+        }, "-=.5")
+        tl.pause();
+
+        card.addEventListener('click', () => {
+            toggle = !toggle;
+            if (toggle ? tl.play() : tl.reverse());
+
+        })
+
+        // card.addEventListener("click", function() {
+        // if (card.src.endsWith("static/main/img/ava.jpeg")) {
+        //     card.src = "//s.svgbox.net/hero-outline.svg?fill=C940FC#menu-alt-1";
+        // } else {                                       
+        //     card.src = "static/main/img/ava.jpeg";
+        // }
+        // });
+    </script>
 </body>
 </html>
