@@ -14,29 +14,29 @@
     <link href="https://fonts.googleapiscom/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="root">
     <header>
         <img class="activator imger2" id="activator" src="static/main/img/ava.jpeg" alt="">
+        <div class="search s">
+            <input id="search-trade" class="search-input" placeholder="Поиск на сайте...">
+            <button id="but" class="search-button"><img width="30px" height="30px" class="imger adj" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#adjustments"></button>
+        </div>
         <nav>
             <ul>
-                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#bell"></a></li>
-                <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#beaker"></a></li>
+                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#user"></a></li>
+                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#heart"></a></li>
                 <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#chat"></a></li>
-                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#cloud-download"></a></li>
+                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#plus-circle"></a></li>
                 <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#cog"></a></li>
             </ul>
         </nav>
     </header><br>
-    <div id="root">
         <!-- <header class="pb-4 p-3 d-flex">
             <button id="toggle" style="width: 64px; height: 64px; margin-left: 28; border-color: white; background: white;">
             </button>
             <a class="logo" href="/">MARKS</a>
             <a href="{% url 'account' %}"><img src="static/main/img/ava.jpeg" class="ava" width="66" height="66"/></a>
         </header> -->
-        <div class="d-flex"></div>
-            <a href="{% url 'shop' %}" class="fragment-l">Магазин</a>
-            <a href="{% url 'trade' %}" class="fragment-r">Рынок</a>
-        </div>
         <!-- <header class="d-flex hidAll flex-column flex-md-row align-items-center pb-1 border-bottom p-1">
             <nav class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0 d-inline-flex mt-2 mt-md-0 ms-md-auto nstyle">
                 <a class="lead my-3 px-2 link-dark text-decoration-none {% if request.resolver_match.url_name == 'home' %}nav-link-active{% endif %}" href="{% url 'home' %}">Главная</a>
@@ -69,9 +69,13 @@
         
         var card = document.getElementById('activator');
         var tl = gsap.timeline({defaults: {ease: "power2.inOut"}})
+        var button = document.getElementById('but')
 
         var toggle = false;
         
+        tl.to('.adj', {
+
+        });
         tl.to('.activator', {
             // background: '#C940FC',
             // 'borderRadius': '8px 0 0 8px',
@@ -95,13 +99,9 @@
 
         })
 
-        // card.addEventListener("click", function() {
-        // if (card.src.endsWith("static/main/img/ava.jpeg")) {
-        //     card.src = "//s.svgbox.net/hero-outline.svg?fill=C940FC#menu-alt-1";
-        // } else {                                       
-        //     card.src = "static/main/img/ava.jpeg";
-        // }
-        // });
+        card.addEventListener("click", function() {
+            button.classList.toggle('hidden')
+        });
     </script>
 </body>
 </html>

@@ -229,12 +229,14 @@ body {
   display: grid; }
 
 header {
+  max-height: 50px;
   display: flex;
   margin-left: 19px;
   margin-top: 15px;
   margin-right: 15px; }
   header .activator {
     border-radius: 8px 0 0 8px;
+    max-width: 50px;
     cursor: pointer; }
 
 .imger {
@@ -256,9 +258,13 @@ ul {
   padding: 0; }
 
 nav {
+  left: 77px;
+  width: calc(100% - 110px);
+  height: 50px;
   background: white;
+  position: absolute;
   border-radius: 0 8px 8px 0;
-  padding: 0.5em;
+  padding: 0.3em;
   clip-path: ellipse(50% 50% at -50% 50%); }
   nav ul {
     display: flex; }
@@ -273,4 +279,20 @@ nav {
         opacity: 0;
         transform: translateX(-10px); }
 
-/*# sourceMappingURL=main.css.map */
+.hidden {
+  display: none;
+  visibility: collapse;
+}
+
+.s {
+  position: relative;
+  margin: 0;
+  margin-left: 0;
+  height: 50px;
+  border-radius: 0 8px 8px 0;
+  width: calc(100% - 50px);
+}
+
+.adj {
+  margin-top: 7px;
+}
