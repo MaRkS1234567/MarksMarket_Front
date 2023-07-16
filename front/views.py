@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpRequest, HttpResponse
 
-def index(request):
+def shop(request):
     context = {}
-    return render(request, 'main/main.html', context)
+    return render(request, 'main/shop.html', context)
+
+def adjustments(request):
+    context = {}
+    return render(request, 'main/adjustments.html')
 
 def about(request):
     context = {}
@@ -28,14 +32,6 @@ def help_view(request):
 def account(request):
     context = {}
     return render(request, 'main/account.html', context)
-
-def trade(request):
-    context = {}
-    return render(request, 'main/trade.html', context)
-
-def shop(request):
-    context = {}
-    return render(request, 'main/shop.html', context)
 
 def chats(request):
     context = {}

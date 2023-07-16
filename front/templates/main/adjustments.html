@@ -1,0 +1,58 @@
+{% extends 'main/main.html' %}
+
+{% block title %}
+заголовок
+{% endblock %}
+
+{% block content %}
+<p></p>
+<div class="wrapper">
+    <div class="values">
+        <span id="range1">
+            0
+        </span>
+        <span> &dash; </span>
+        <span id="range2">
+            1000
+        </span>
+    </div>
+    <div class="container">
+        <div class="slider-track"></div>
+        <input type="range" min="0" max="1000" value="400" id="slider-1" oninput="slideOne()">
+        <input type="range" min="0" max="1000" value="600" id="slider-2" oninput="slideTwo()">
+    </div>
+</div>
+
+<script>
+    window.onload = function(){
+    slideOne();
+    slideTwo();
+}
+let sliderOne = document.getElementById("slider-1");
+let sliderTwo = document.getElementById("slider-2");
+let displayValOne = document.getElementById("range1");
+let displayValTwo = document.getElementById("range2");
+let minGap = 0;
+let sliderTrack = document.querySelector(".slider-track");
+let sliderMaxValue = document.getElementById("slider-1").max;
+function slideOne(){
+    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderOne.value = parseInt(sliderTwo.value) - minGap;
+    }
+    displayValOne.textContent = sliderOne.value;
+    fillColor();
+}
+function slideTwo(){
+    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
+        sliderTwo.value = parseInt(sliderOne.value) + minGap;
+    }
+    displayValTwo.textContent = sliderTwo.value;
+    fillColor();
+}
+function fillColor(){
+    percent1 = (sliderOne.value / sliderMaxValue) * 100;
+    percent2 = (sliderTwo.value / sliderMaxValue) * 100;
+    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #C940FC ${percent1}% , #C940FC ${percent2}%, #dadae5 ${percent2}%)`;
+}
+</script>
+{% endblock %}
