@@ -15,23 +15,25 @@
 </head>
 <body>
     <div id="root">
-    <header>
-        <img class="activator imger2" id="activator" src="static/main/img/ava.jpeg" alt="">
-        <div class="search s">
-            <input id="search-trade" class="search-input" placeholder="Поиск на сайте...">
-            <a href="{% url 'adjustments' %}" id="but" class="search-button"><img width="30px" height="30px" class="imger adj" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#adjustments"></a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#newspaper"></a></li>
-                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#user"></a></li>
-                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#heart"></a></li>
-                <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#chat"></a></li>
-                <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#plus-circle"></a></li>
-            </ul>
-        </nav>
-    </header><br>
         <main>
+            {% block contentextends %}
+            <header>
+                <img class="activator imger2" id="activator" src="static/main/img/ava.jpeg" alt="">
+                <div class="search s">
+                    <input id="search-trade" class="search-input" placeholder="Поиск на сайте...">
+                    <a href="{% url 'adjustments' %}" id="but" class="search-button"><img width="30px" height="30px" class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#adjustments"></a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#newspaper"></a></li>
+                        <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#user"></a></li>
+                        <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#heart"></a></li>
+                        <li><a href="#"><img class="imger"  src="//s.svgbox.net/hero-outline.svg?fill=C940FC#chat"></a></li>
+                        <li><a href="#"><img class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#plus-circle"></a></li>
+                    </ul>
+                </nav>
+            </header><br>
+            {% endblock %}
             <div class="container">
                 {% block content %}{% endblock %}
             </div>
@@ -84,9 +86,6 @@
 
         })
 
-        // card.addEventListener("click", function() {
-        //     button.classList.toggle('hidden')
-        // });
     </script>
 </body>
 </html>

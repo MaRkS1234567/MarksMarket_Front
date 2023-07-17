@@ -4,55 +4,65 @@
 заголовок
 {% endblock %}
 
-{% block content %}
-<p></p>
-<div class="wrapper">
-    <div class="values">
-        <span id="range1">
-            0
-        </span>
-        <span> &dash; </span>
-        <span id="range2">
-            1000
-        </span>
+{% block contentextends %}
+    <div class="d-flex">
+        <a href="{% url 'home' %}" style="margin-right: auto;" class="button">Сохранить</a>
+        <div style="margin-left: auto; margin-right: auto;" class="text">Фильтры</div>
+        <a href="{% url 'home' %}" style="margin-left: auto;" class="button">Отмена</a>
     </div>
-    <div class="container">
-        <div class="slider-track"></div>
-        <input type="range" min="0" max="1000" value="400" id="slider-1" oninput="slideOne()">
-        <input type="range" min="0" max="1000" value="600" id="slider-2" oninput="slideTwo()">
+<div style="height: calc(100% + 30px);" class="white-block">
+    <div class="d-flex">
+        <input style="font-size: 13px; padding-top: 5px; padding-left: 5px;" placeholder="Цена от" id="rangeValues" type="number" value="500" class="rangeValues"></input>
+        <input style="font-size: 13px; padding-top: 5px; padding-left: 5px;" placeholder="Цена до" id="rangeValues2" type="number" value="50000" class="rangeValues"></input>
+        <input id="pricebutton" style="width: calc(50% - 25px); font-size: 12px;" value="По возрастанию" class="hovernone" type="button">
     </div>
+    <section class="range-slider">
+      <input class="inputrange" value="500" min="500" max="50000" step="500" type="range">
+      <input class="inputrange" value="50000" min="500" max="50000" step="500" type="range">
+    </section>
+    <div style="margin-top: 70px; margin-bottom: 0;" class="button-dark">something</div>
 </div>
-
 <script>
-    window.onload = function(){
-    slideOne();
-    slideTwo();
+function getVals(){
+  // Get slider values
+  var parent = this.parentNode;
+  var slides = parent.getElementsByClassName("inputrange");
+    var slide1 = parseFloat( slides[0].value );
+    var slide2 = parseFloat( slides[1].value );
+  // Neither slider will clip the other, so make sure we determine which is larger
+  if( slide1 > slide2 ){ var tmp = slide2; slide2 = slide1; slide1 = tmp; }
+    var displayElement = document.getElementById("rangeValues")
+    var displayElement2 = document.getElementById("rangeValues2")
+    console.log
+  if (displayElement.value){
+    displayElement.value = slide1
+    displayElement2.value = slide2
+  }
+    
 }
-let sliderOne = document.getElementById("slider-1");
-let sliderTwo = document.getElementById("slider-2");
-let displayValOne = document.getElementById("range1");
-let displayValTwo = document.getElementById("range2");
-let minGap = 0;
-let sliderTrack = document.querySelector(".slider-track");
-let sliderMaxValue = document.getElementById("slider-1").max;
-function slideOne(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
-        sliderOne.value = parseInt(sliderTwo.value) - minGap;
+
+window.onload = function(){
+  // Initialize Sliders
+  var sliderSections = document.getElementsByClassName("range-slider");
+      for( var x = 0; x < sliderSections.length; x++ ){
+        var sliders = sliderSections[x].getElementsByTagName("input");
+        for( var y = 0; y < sliders.length; y++ ){
+          if( sliders[y].type ==="range" ){
+            sliders[y].oninput = getVals;
+            // Manually trigger event first time to display values
+            sliders[y].oninput();
+          }
+        }
+      }
+}
+var pricebutton = document.getElementById("pricebutton")
+
+pricebutton.addEventListener("click", function() {
+    if (pricebutton.value === 'По возрастанию') {
+        pricebutton.value = 'По убыванию'
+    } else {
+        pricebutton.value = 'По возрастанию'
     }
-    displayValOne.textContent = sliderOne.value;
-    fillColor();
-}
-function slideTwo(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap){
-        sliderTwo.value = parseInt(sliderOne.value) + minGap;
-    }
-    displayValTwo.textContent = sliderTwo.value;
-    fillColor();
-}
-function fillColor(){
-    percent1 = (sliderOne.value / sliderMaxValue) * 100;
-    percent2 = (sliderTwo.value / sliderMaxValue) * 100;
-    sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #C940FC ${percent1}% , #C940FC ${percent2}%, #dadae5 ${percent2}%)`;
-}
+});
 </script>
 {% endblock %}
