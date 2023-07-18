@@ -6,21 +6,37 @@
 
 {% block contentextends %}
     <div class="d-flex">
-        <a href="{% url 'home' %}" style="margin-right: auto;" class="button">Сохранить</a>
+        <a href="{% url 'home' %}" style="margin-right: auto; padding-left: 7px!important; padding-right: 7px!important;" class="button">Сохранить</a>
         <div style="margin-left: auto; margin-right: auto;" class="text">Фильтры</div>
-        <a href="{% url 'home' %}" style="margin-left: auto;" class="button">Отмена</a>
+        <a href="{% url 'home' %}" style="margin-left: auto; padding-left: 18px!important; padding-right: 18px!important;" class="button">Отмена</a>
     </div>
 <div style="height: calc(100% + 30px);" class="white-block">
-    <div class="d-flex">
-        <input style="font-size: 13px; padding-top: 5px; padding-left: 5px;" placeholder="Цена от" id="rangeValues" type="number" value="500" class="rangeValues"></input>
-        <input style="font-size: 13px; padding-top: 5px; padding-left: 5px;" placeholder="Цена до" id="rangeValues2" type="number" value="50000" class="rangeValues"></input>
+    <div style="height: 42px;" class="d-flex">
+        <input style="font-size: 13px; padding-top: 4px; padding-left: 5px;" placeholder="Цена от" id="rangeValues" type="number" value="500" class="rangeValues"></input>
+        <input style="font-size: 13px; padding-top: 4px; padding-left: 5px;" placeholder="Цена до" id="rangeValues2" type="number" value="50000" class="rangeValues"></input>
         <input id="pricebutton" style="width: calc(50% - 25px); font-size: 12px;" value="По возрастанию" class="hovernone" type="button">
     </div>
     <section class="range-slider">
       <input class="inputrange" value="500" min="500" max="50000" step="500" type="range">
       <input class="inputrange" value="50000" min="500" max="50000" step="500" type="range">
     </section>
-    <div style="margin-top: 70px; margin-bottom: 0;" class="button-dark">something</div>
+    <div style="margin-bottom: 25px;" class="d-flex">
+        <div style="padding-top: 8px; font-size: 12px; width: 25%!important; margin-top: 70px!important; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Размеры</div>
+        <input id="size-button1" style=" width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important; padding-right: 7px!important;" value="RU" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button2" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important;" value="US" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button3" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important;" value="UK" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button4" value="Все" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important; width: 25%; margin-top: 70px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="button-flex-dark-conter select-button" type="button">
+    </div>
+    <div id="input-size" class="search hidden">
+        <input placeholder="Введите свой размер..." class="search-input" type="number">
+        <input style="color: #C940FC!important;" value="DE" id="button-size" type="button" class="search-button"/>
+    </div>
+    <div id="div-margin" class="d-flex">
+        <div style="padding-top: 8px; font-size: 12px; width: 25%; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Искать в</div>
+        <input id="select-button1" style=" border: none;font-size: 12px; padding-right: 7px!important;" value="магазине" class="button-flex-dark-conter select-button" type="button">
+        <input id="select-button2" style=" border: none;font-size: 12px;" value="на рынке" class="button-flex-dark-conter select-button" type="button">
+        <input id="select-button3" value="везде" style=" border: none;font-size: 12px; width: 25%; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="button-flex-dark-conter select-button" type="button">
+    </div>
 </div>
 <script>
 function getVals(){
@@ -62,6 +78,160 @@ pricebutton.addEventListener("click", function() {
         pricebutton.value = 'По убыванию'
     } else {
         pricebutton.value = 'По возрастанию'
+    }
+});
+
+var selectbutton1 = document.getElementById("select-button1")
+var selectbutton2 = document.getElementById("select-button2")
+var selectbutton3 = document.getElementById("select-button3")
+
+selectbutton1.addEventListener("click", function() {
+    selectbutton1.classList.toggle('button-flex-dark-conter')
+    selectbutton1.classList.toggle('text-flex-dark-conter')
+    if (selectbutton2.classList.contains('text-flex-dark-conter')){
+        selectbutton2.classList.toggle('text-flex-dark-conter')
+        selectbutton2.classList.toggle('button-flex-dark-conter')
+    }
+    if (selectbutton3.classList.contains('text-flex-dark-conter')){
+        selectbutton3.classList.toggle('text-flex-dark-conter')
+        selectbutton3.classList.toggle('button-flex-dark-conter')
+    }
+});
+selectbutton2.addEventListener("click", function() {
+    selectbutton2.classList.toggle('button-flex-dark-conter')
+    selectbutton2.classList.toggle('text-flex-dark-conter')
+    if (selectbutton1.classList.contains('text-flex-dark-conter')){
+        selectbutton1.classList.toggle('text-flex-dark-conter')
+        selectbutton1.classList.toggle('button-flex-dark-conter')
+    }
+    if (selectbutton3.classList.contains('text-flex-dark-conter')){
+        selectbutton3.classList.toggle('text-flex-dark-conter')
+        selectbutton3.classList.toggle('button-flex-dark-conter')
+    }
+});
+selectbutton3.addEventListener("click", function() {
+    selectbutton3.classList.toggle('button-flex-dark-conter')
+    selectbutton3.classList.toggle('text-flex-dark-conter')
+    if (selectbutton2.classList.contains('text-flex-dark-conter')){
+        selectbutton2.classList.toggle('text-flex-dark-conter')
+        selectbutton2.classList.toggle('button-flex-dark-conter')
+    }
+    if (selectbutton1.classList.contains('text-flex-dark-conter')){
+        selectbutton1.classList.toggle('text-flex-dark-conter')
+        selectbutton1.classList.toggle('button-flex-dark-conter')
+    }
+});
+
+
+
+var sizebutton1 = document.getElementById("size-button1")
+var sizebutton2 = document.getElementById("size-button2")
+var sizebutton3 = document.getElementById("size-button3")
+var sizebutton4 = document.getElementById("size-button4")
+
+var sizeinput = document.getElementById("input-size")
+var divmargin = document.getElementById("div-margin")
+var sizebutton = document.getElementById("button-size")
+
+sizebutton1.addEventListener("click", function() {
+    sizebutton1.classList.toggle('button-flex-dark-conter')
+    sizebutton1.classList.toggle('text-flex-dark-conter')
+    if (sizebutton.value === 'DE'){
+        sizebutton.value = 'RU'
+        sizeinput.classList.remove('hidden')
+        divmargin.classList.add('mar-top')
+    } else if (sizebutton.value === 'RU'){
+        sizebutton.value = 'DE'
+        sizeinput.classList.add('hidden')
+        divmargin.classList.remove('mar-top')
+    } else {
+        sizebutton.value = 'RU'
+    }
+    if (sizebutton2.classList.contains('text-flex-dark-conter')){
+        sizebutton2.classList.toggle('text-flex-dark-conter')
+        sizebutton2.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton3.classList.contains('text-flex-dark-conter')){
+        sizebutton3.classList.toggle('text-flex-dark-conter')
+        sizebutton3.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton4.classList.contains('text-flex-dark-conter')){
+        sizebutton4.classList.toggle('text-flex-dark-conter')
+        sizebutton4.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton2.addEventListener("click", function() {
+    sizebutton2.classList.toggle('button-flex-dark-conter')
+    sizebutton2.classList.toggle('text-flex-dark-conter')
+    if (sizebutton.value === 'DE'){
+        sizebutton.value = 'US'
+        sizeinput.classList.remove('hidden')
+        divmargin.classList.add('mar-top')
+    } else if (sizebutton.value === 'US'){
+        sizebutton.value = 'DE'
+        sizeinput.classList.add('hidden')
+        divmargin.classList.remove('mar-top')
+    } else {
+        sizebutton.value = 'US'
+    }
+    if (sizebutton1.classList.contains('text-flex-dark-conter')){
+        sizebutton1.classList.toggle('text-flex-dark-conter')
+        sizebutton1.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton3.classList.contains('text-flex-dark-conter')){
+        sizebutton3.classList.toggle('text-flex-dark-conter')
+        sizebutton3.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton4.classList.contains('text-flex-dark-conter')){
+        sizebutton4.classList.toggle('text-flex-dark-conter')
+        sizebutton4.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton3.addEventListener("click", function() {
+    sizebutton3.classList.toggle('button-flex-dark-conter')
+    sizebutton3.classList.toggle('text-flex-dark-conter')
+    if (sizebutton.value === 'DE'){
+        sizebutton.value = 'UK'
+        sizeinput.classList.remove('hidden')
+        divmargin.classList.add('mar-top')
+    } else if (sizebutton.value === 'UK'){
+        sizebutton.value = 'DE'
+        sizeinput.classList.add('hidden')
+        divmargin.classList.remove('mar-top')
+    } else {
+        sizebutton.value = 'UK'
+    }
+    if (sizebutton2.classList.contains('text-flex-dark-conter')){
+        sizebutton2.classList.toggle('text-flex-dark-conter')
+        sizebutton2.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton1.classList.contains('text-flex-dark-conter')){
+        sizebutton1.classList.toggle('text-flex-dark-conter')
+        sizebutton1.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton4.classList.contains('text-flex-dark-conter')){
+        sizebutton4.classList.toggle('text-flex-dark-conter')
+        sizebutton4.classList.toggle('button-flex-dark-conter')
+    }
+});
+
+sizebutton4.addEventListener("click", function() {
+    sizebutton.value = 'DE'
+    sizeinput.classList.add('hidden')
+    divmargin.classList.remove('mar-top')
+    sizebutton4.classList.toggle('button-flex-dark-conter')
+    sizebutton4.classList.toggle('text-flex-dark-conter')
+    if (sizebutton2.classList.contains('text-flex-dark-conter')){
+        sizebutton2.classList.toggle('text-flex-dark-conter')
+        sizebutton2.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton1.classList.contains('text-flex-dark-conter')){
+        sizebutton1.classList.toggle('text-flex-dark-conter')
+        sizebutton1.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton3.classList.contains('text-flex-dark-conter')){
+        sizebutton3.classList.toggle('text-flex-dark-conter')
+        sizebutton3.classList.toggle('button-flex-dark-conter')
     }
 });
 </script>

@@ -19,8 +19,8 @@
             {% block contentextends %}
             <header>
                 <img class="activator imger2" id="activator" src="static/main/img/ava.jpeg" alt="">
-                <div class="search s">
-                    <input id="search-trade" class="search-input" placeholder="Поиск на сайте...">
+                <div class="search-main s">
+                    <input id="search-trade" class="search-input-main" placeholder="Поиск на сайте...">
                     <a href="{% url 'adjustments' %}" id="but" class="search-button"><img width="30px" height="30px" class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#adjustments"></a>
                 </div>
                 <nav>
@@ -85,6 +85,7 @@
             if (toggle ? tl.play() : tl.reverse());
 
         })
+
 
     </script>
 </body>
