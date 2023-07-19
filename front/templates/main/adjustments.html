@@ -21,11 +21,40 @@
       <input class="inputrange" value="50000" min="500" max="50000" step="500" type="range">
     </section>
     <div style="margin-bottom: 25px;" class="d-flex">
-        <div style="padding-top: 8px; font-size: 12px; width: 25%!important; margin-top: 70px!important; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Размеры</div>
-        <input id="size-button1" style=" width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important; padding-right: 7px!important;" value="RU" class="button-flex-dark-conter select-button" type="button">
-        <input id="size-button2" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important;" value="US" class="button-flex-dark-conter select-button" type="button">
-        <input id="size-button3" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important;" value="UK" class="button-flex-dark-conter select-button" type="button">
-        <input id="size-button4" value="Все" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 70px!important; width: 25%; margin-top: 70px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="button-flex-dark-conter select-button" type="button">
+        <div style="text-align: center; padding-top: 8px; font-size: 12px; width: 50%!important; margin-top: 70px!important; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Тип одежды</div>
+        <details style="width: 50%!important; border: none;font-size: 12px; margin-top: 70px!important; width: 25%; margin-top: 70px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="custom-select">
+            <summary class="radios" id="type-button">
+                <p style="display: inline;" id="display">Всё</p>
+                <input class="input" type="radio" name="item" id="item1" title="Кроссовки">
+                <input class="input" type="radio" name="item" id="item2" title="Вверхняя одежда">
+                <input class="input" type="radio" name="item" id="item3" title="Штаны / шорты">
+                <input class="input" type="radio" name="item" id="item4" title="Аксесуары">
+            </summary>
+            <ul class="list ul">
+                <li class="li">
+                    <label for="item1">
+                        Кроссовки
+                        <span></span>
+                    </label>
+                </li>
+                <li class="li">
+                    <label for="item2">Вверхняя одежда</label>
+                </li>
+                <li class="li">
+                    <label for="item3">Штаны / шорты</label>
+                </li>
+                <li class="li">
+                    <label for="item4">Аксесуары</label>
+                </li>
+            </ul>
+        </details>
+    </div>
+    <div style="margin-bottom: 25px;" class="d-flex">
+        <div style="padding-top: 8px; font-size: 12px; width: 25%!important; margin-top: 0px!important; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Размеры</div>
+        <input id="size-button1" style=" width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important; padding-right: 7px!important;" value="RU" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button2" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="US" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button3" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="UK" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button4" value="Все" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important; width: 25%; margin-top: 70px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="button-flex-dark-conter select-button" type="button">
     </div>
     <div id="input-size" class="search hidden">
         <input placeholder="Введите свой размер..." class="search-input" type="number">
@@ -80,6 +109,50 @@ pricebutton.addEventListener("click", function() {
         pricebutton.value = 'По возрастанию'
     }
 });
+
+
+var item_input1 = document.getElementById("item1")
+var item_input2 = document.getElementById("item2")
+var item_input3 = document.getElementById("item3")
+var item_input4 = document.getElementById("item4")
+
+typebutton = document.getElementById("type-button")
+ 
+var display = document.getElementById("display")
+
+item_input1.addEventListener('click', function() {
+    if (display.innerText === item_input1.title){
+        typebutton.classList.toggle("corner-dark")
+        display.innerText = "Всё"
+    } else {
+        display.innerText = item_input1.title
+    }
+})
+item_input2.addEventListener('click', function() {
+    if (display.innerText === item_input2.title){
+        typebutton.classList.toggle("corner-dark")
+        display.innerText = "Всё"
+    } else {
+        display.innerText = item_input2.title
+    }
+})
+item_input3.addEventListener('click', function() {
+    if (display.innerText === item_input3.title){
+        typebutton.classList.toggle("corner-dark")
+        display.innerText = "Всё"
+    } else {
+        display.innerText = item_input3.title
+    }
+})
+item_input4.addEventListener('click', function() {
+    if (display.innerText === item_input4.title){
+        typebutton.classList.toggle("corner-dark")
+        display.innerText = "Всё"
+    } else {
+        display.innerText = item_input4.title
+    }
+})
+
 
 var selectbutton1 = document.getElementById("select-button1")
 var selectbutton2 = document.getElementById("select-button2")
@@ -234,5 +307,7 @@ sizebutton4.addEventListener("click", function() {
         sizebutton3.classList.toggle('button-flex-dark-conter')
     }
 });
+
+
 </script>
 {% endblock %}

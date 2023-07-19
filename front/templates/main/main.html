@@ -21,7 +21,7 @@
                 <img class="activator imger2" id="activator" src="static/main/img/ava.jpeg" alt="">
                 <div class="search-main s">
                     <input id="search-trade" class="search-input-main" placeholder="Поиск на сайте...">
-                    <a href="{% url 'adjustments' %}" id="but" class="search-button"><img width="30px" height="30px" class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#adjustments"></a>
+                    <a href="{% url 'adjustments' %}" id="but" class="search-button-main"><img width="30px" height="30px" class="imger" src="//s.svgbox.net/hero-outline.svg?fill=C940FC#adjustments"></a>
                 </div>
                 <nav>
                     <ul>
@@ -55,7 +55,7 @@
     <script>
         
         var card = document.getElementById('activator');
-        var tl = gsap.timeline({defaults: {ease: "power2.inOut"}})
+        var tl = gsap.timeline({defaults: {ease: "power1.inOut"}})
         var button = document.getElementById('but')
 
         var toggle = false;
@@ -72,12 +72,12 @@
         tl.to('nav', {
             'clipPath': 'ellipse(100% 100% at 50% 50%)',
             'box-shadow': '-4px 4px #C940FC'
-        }, "-=.5")
+        }, "-=.9")
         tl.to('nav img', {
             opacity: 1,
             transform: 'translateX(0)',
             stagger: .05
-        }, "-=.5")
+        }, "-=.9")
         tl.pause();
 
         card.addEventListener('click', () => {
