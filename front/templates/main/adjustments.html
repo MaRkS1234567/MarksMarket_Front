@@ -34,7 +34,6 @@
                 <li class="li">
                     <label for="item1">
                         Кроссовки
-                        <span></span>
                     </label>
                 </li>
                 <li class="li">
@@ -49,12 +48,31 @@
             </ul>
         </details>
     </div>
-    <div style="margin-bottom: 25px;" class="d-flex">
-        <div style="padding-top: 8px; font-size: 12px; width: 25%!important; margin-top: 0px!important; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Размеры</div>
+    <div class="d-flex hidden" id="undertype">
+        <div style="text-align: center; padding-top: 8px; font-size: 12px; width: 50%!important; margin-top: 0px!important; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Подтип одежды</div>
+        <details style="width: 50%!important; border: none;font-size: 12px; margin-top: 0px!important; width: 25%; margin-top: 25px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="custom-select">
+            <summary class="radios" id="type-button2">
+                <p style="display: inline;" id="display2">Всё</p>
+            </summary>
+            <ul id="ul" class="list ul">
+            </ul>
+        </details>
+    </div>
+    <div class="d-flex hidden" id="martop">
+        <div style="padding-top: 8px; font-size: 12px; width: 25%!important; margin-top: 0px; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Размеры</div>
         <input id="size-button1" style=" width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important; padding-right: 7px!important;" value="RU" class="button-flex-dark-conter select-button" type="button">
         <input id="size-button2" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="US" class="button-flex-dark-conter select-button" type="button">
         <input id="size-button3" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="UK" class="button-flex-dark-conter select-button" type="button">
         <input id="size-button4" value="Все" style="width: 18.75%!important; border: none;font-size: 12px; margin-top: 0px!important; width: 25%; margin-top: 70px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="button-flex-dark-conter select-button" type="button">
+    </div>
+    <div class="d-flex hidden" id="martop2">
+        <div style="padding-top: 8px; font-size: 12px; width: 25%!important; margin-top: 0px; margin-bottom: 0; color: #C940FC!important; border-radius: 8px 0 0 8px;" class="text-dark">Размеры</div>
+        <input id="size-button5" style=" width: 12.5%!important; border: none;font-size: 12px; margin-top: 0px!important; padding-right: 7px!important;" value="XS" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button6" style="width: 12.5%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="S" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button7" style="width: 12.5%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="M" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button8" style="width: 12.5%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="L" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button9" style="width: 12.5%!important; border: none;font-size: 12px; margin-top: 0px!important;" value="XL" class="button-flex-dark-conter select-button" type="button">
+        <input id="size-button10" value="Все" style="width: 12.5%!important; border: none;font-size: 12px; margin-top: 0px!important; width: 25%; margin-top: 70px; margin-bottom: 0; border-radius: 0px 8px 8px 0px!important;" class="button-flex-dark-conter select-button" type="button">
     </div>
     <div id="input-size" class="search hidden">
         <input placeholder="Введите свой размер..." class="search-input" type="number">
@@ -110,46 +128,612 @@ pricebutton.addEventListener("click", function() {
     }
 });
 
-
 var item_input1 = document.getElementById("item1")
 var item_input2 = document.getElementById("item2")
 var item_input3 = document.getElementById("item3")
 var item_input4 = document.getElementById("item4")
-
-typebutton = document.getElementById("type-button")
+var item_input5 = document.getElementById("item5")
+var li5 = document.getElementById("li5")
+var ul = document.getElementById("ul")
+var typebutton = document.getElementById("type-button")
+var typebutton2 = document.getElementById("type-button2")
  
 var display = document.getElementById("display")
+var display2 = document.getElementById("display2")
+var undertype = document.getElementById("undertype")
+var martop = document.getElementById("martop")
+var martop2 = document.getElementById("martop2")
 
 item_input1.addEventListener('click', function() {
+  martop.classList.toggle('hidden')
+  martop.classList.toggle('mar-bot')
+  martop.classList.toggle('mar-top')
+  if (martop2.classList.contains('mar-top')){
+    martop2.classList.add('hidden')
+    martop2.classList.remove('mar-bot')
+    martop2.classList.remove('mar-top')
+  }
+  if (document.contains(document.getElementById("item5"))){
+    document.getElementById("item5").remove();
+    document.getElementById("li5").remove();
+  }
+  if (document.contains(document.getElementById("item6"))){
+    document.getElementById("item6").remove();
+    document.getElementById("li6").remove();
+  }
+  if (document.contains(document.getElementById("item7"))){
+    document.getElementById("item7").remove();
+    document.getElementById("li7").remove();
+  }
+  if (document.contains(document.getElementById("item8"))){
+    document.getElementById("item8").remove();
+    document.getElementById("li8").remove();
+  }
+  if (document.contains(document.getElementById("item9"))){
+    document.getElementById("item9").remove();
+    document.getElementById("li9").remove();
+  }
+  if (document.contains(document.getElementById("item10"))){
+    document.getElementById("item10").remove();
+    document.getElementById("li10").remove();
+  }
+
+  var item_input5 = document.createElement("input")
+  item_input5.setAttribute('id', 'item5')
+  item_input5.setAttribute('class', 'input')
+  item_input5.setAttribute('type', 'radio')
+  item_input5.setAttribute('name', 'item_5')
+  item_input5.setAttribute('title', 'Кеды')
+  var li5 = document.createElement("li")
+  li5.setAttribute('id', 'li5')
+  li5.setAttribute('class', 'li li5')
+  li5.innerText = "Кеды"
+  typebutton2.insertBefore(item_input5, typebutton2.childNodes[2])
+  ul.insertBefore(li5, ul.childNodes[2])
+  if (document.contains(document.getElementById("item5")))  {li5.addEventListener('click', function() {
+      if (display2.innerText === item_input5.title){
+          typebutton.classList.toggle("corner-dark")
+          display2.innerText = "Всё"
+      } else {
+          display2.innerText = item_input5.title
+      }
+  })}
+
+    var item_input6 = document.createElement("input")
+    item_input6.setAttribute('id', 'item6')
+    item_input6.setAttribute('class', 'input')
+    item_input6.setAttribute('type', 'radio')
+    item_input6.setAttribute('name', 'item_6')
+    item_input6.setAttribute('title', 'Тапочки')
+    var li6 = document.createElement("li")
+    li6.setAttribute('id', 'li6')
+    li6.setAttribute('class', 'li li5')
+    li6.innerText = "Тапочки"
+    typebutton2.insertBefore(item_input6, typebutton2.childNodes[2])
+    ul.insertBefore(li6, ul.childNodes[2])
+    if (document.contains(document.getElementById("item6"))) {li6.addEventListener('click', function() {
+    if (display2.innerText === item_input6.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input6.title
+    }
+    })}
+
+    var item_input7 = document.createElement("input")
+    item_input7.setAttribute('id', 'item7')
+    item_input7.setAttribute('class', 'input')
+    item_input7.setAttribute('type', 'radio')
+    item_input7.setAttribute('name', 'item_7')
+    item_input7.setAttribute('title', 'Ботинки')
+    var li7 = document.createElement("li")
+    li7.setAttribute('id', 'li7')
+    li7.setAttribute('class', 'li li5')
+    li7.innerText = "Ботинки"
+    typebutton2.insertBefore(item_input7, typebutton2.childNodes[2])
+    ul.insertBefore(li7, ul.childNodes[2])
+    if (document.contains(document.getElementById("item7"))) {li7.addEventListener('click', function() {
+    if (display2.innerText === item_input7.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input7.title
+    }
+    })}
+
+    var item_input8 = document.createElement("input")
+    item_input8.setAttribute('id', 'item8')
+    item_input8.setAttribute('class', 'input')
+    item_input8.setAttribute('type', 'radio')
+    item_input8.setAttribute('name', 'item_8')
+    item_input8.setAttribute('title', 'Спорт. обувь')
+    var li8 = document.createElement("li")
+    li8.setAttribute('id', 'li8')
+    li8.setAttribute('class', 'li li5')
+    li8.innerText = "Спорт. обувь"
+    typebutton2.insertBefore(item_input8, typebutton2.childNodes[2])
+    ul.insertBefore(li8, ul.childNodes[2])
+    if (document.contains(document.getElementById("item8"))) {li8.addEventListener('click', function() {
+    if (display2.innerText === item_input8.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input8.title
+    }
+    })}
+
+    var item_input9 = document.createElement("input")
+    item_input9.setAttribute('id', 'item9')
+    item_input9.setAttribute('class', 'input')
+    item_input9.setAttribute('type', 'radio')
+    item_input9.setAttribute('name', 'item_9')
+    item_input9.setAttribute('title', 'Высокие кеды')
+    var li9 = document.createElement("li")
+    li9.setAttribute('id', 'li9')
+    li9.setAttribute('class', 'li li5')
+    li9.innerText = "Высокие кеды"
+    typebutton2.insertBefore(item_input9, typebutton2.childNodes[2])
+    ul.insertBefore(li9, ul.childNodes[2])
+    if (document.contains(document.getElementById("item9"))) {li9.addEventListener('click', function() {
+    if (display2.innerText === item_input9.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input9.title
+    }
+    })}
     if (display.innerText === item_input1.title){
         typebutton.classList.toggle("corner-dark")
         display.innerText = "Всё"
+        undertype.classList.add("hidden")
+        martop.classList.remove('mar-top')
     } else {
         display.innerText = item_input1.title
+        undertype.classList.remove("hidden")
+        martop.classList.add('mar-top')
     }
 })
 item_input2.addEventListener('click', function() {
+    if (display.innerText === item_input3.title) {
+      martop2.classList.add('mar-top')
+      martop2.classList.add('mar-bot')
+      martop2.classList.remove('hidden')
+    } else {
+      martop2.classList.toggle('mar-top')
+      martop2.classList.toggle('mar-bot')
+      martop2.classList.toggle('hidden')
+    }
+  if (martop.classList.contains('mar-top')){
+    martop.classList.add('hidden')
+    martop.classList.remove('mar-bot')
+    martop.classList.remove('mar-top')
+  }
+  if (document.contains(document.getElementById("item5"))){
+    document.getElementById("item5").remove();
+    document.getElementById("li5").remove();
+  }
+  if (document.contains(document.getElementById("item6"))){
+    document.getElementById("item6").remove();
+    document.getElementById("li6").remove();
+  }
+  if (document.contains(document.getElementById("item7"))){
+    document.getElementById("item7").remove();
+    document.getElementById("li7").remove();
+  }
+  if (document.contains(document.getElementById("item8"))){
+    document.getElementById("item8").remove();
+    document.getElementById("li8").remove();
+  }
+  if (document.contains(document.getElementById("item9"))){
+    document.getElementById("item9").remove();
+    document.getElementById("li9").remove();
+  }
+  if (document.contains(document.getElementById("item10"))){
+    document.getElementById("item10").remove();
+    document.getElementById("li10").remove();
+  }
+
+  var item_input5 = document.createElement("input")
+  item_input5.setAttribute('id', 'item5')
+  item_input5.setAttribute('class', 'input')
+  item_input5.setAttribute('type', 'radio')
+  item_input5.setAttribute('name', 'item_5')
+  item_input5.setAttribute('title', 'Футболки')
+  var li5 = document.createElement("li")
+  li5.setAttribute('id', 'li5')
+  li5.setAttribute('class', 'li li5')
+  li5.innerText = "Футболки"
+  typebutton2.insertBefore(item_input5, typebutton2.childNodes[2])
+  ul.insertBefore(li5, ul.childNodes[2])
+
+  var item_input10 = document.createElement("input")
+  item_input10.setAttribute('id', 'item10')
+  item_input10.setAttribute('class', 'input')
+  item_input10.setAttribute('type', 'radio')
+  item_input10.setAttribute('name', 'item_10')
+  item_input10.setAttribute('title', 'Желетки')
+  var li10 = document.createElement("li")
+  li10.setAttribute('id', 'li10')
+  li10.setAttribute('class', 'li li5')
+  li10.innerText = "Желетки"
+  typebutton2.insertBefore(item_input10, typebutton2.childNodes[2])
+  ul.insertBefore(li10, ul.childNodes[2])
+
+  var item_input6 = document.createElement("input")
+  item_input6.setAttribute('id', 'item6')
+  item_input6.setAttribute('class', 'input')
+  item_input6.setAttribute('type', 'radio')
+  item_input6.setAttribute('name', 'item_6')
+  item_input6.setAttribute('title', 'Легкие куртки')
+  var li6 = document.createElement("li")
+  li6.setAttribute('id', 'li6')
+  li6.setAttribute('class', 'li li5')
+  li6.innerText = "Легкие куртки"
+  typebutton2.insertBefore(item_input6, typebutton2.childNodes[2])
+  ul.insertBefore(li6, ul.childNodes[2])
+
+  var item_input7 = document.createElement("input")
+  item_input7.setAttribute('id', 'item7')
+  item_input7.setAttribute('class', 'input')
+  item_input7.setAttribute('type', 'radio')
+  item_input7.setAttribute('name', 'item_7')
+  item_input7.setAttribute('title', 'Куртки')
+  var li7 = document.createElement("li")
+  li7.setAttribute('id', 'li7')
+  li7.setAttribute('class', 'li li5')
+  li7.innerText = "Куртки"
+  typebutton2.insertBefore(item_input7, typebutton2.childNodes[2])
+  ul.insertBefore(li7, ul.childNodes[2])
+
+  var item_input8 = document.createElement("input")
+  item_input8.setAttribute('id', 'item8')
+  item_input8.setAttribute('class', 'input')
+  item_input8.setAttribute('type', 'radio')
+  item_input8.setAttribute('name', 'item_8')
+  item_input8.setAttribute('title', 'Зипки')
+  var li8 = document.createElement("li")
+  li8.setAttribute('id', 'li8')
+  li8.setAttribute('class', 'li li5')
+  li8.innerText = "Зипки"
+  typebutton2.insertBefore(item_input8, typebutton2.childNodes[2])
+  ul.insertBefore(li8, ul.childNodes[2])
+
+  var item_input9 = document.createElement("input")
+  item_input9.setAttribute('id', 'item9')
+  item_input9.setAttribute('class', 'input')
+  item_input9.setAttribute('type', 'radio')
+  item_input9.setAttribute('name', 'item_9')
+  item_input9.setAttribute('title', 'Кофты')
+  var li9 = document.createElement("li")
+  li9.setAttribute('id', 'li9')
+  li9.setAttribute('class', 'li li5')
+  li9.innerText = "Кофты"
+  typebutton2.insertBefore(item_input9, typebutton2.childNodes[2])
+  ul.insertBefore(li9, ul.childNodes[2])
+  if (document.contains(document.getElementById("item6"))) {li6.addEventListener('click', function() {
+    if (display2.innerText === item_input6.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input6.title
+    }
+})}
+if (document.contains(document.getElementById("item7"))) {li7.addEventListener('click', function() {
+    if (display2.innerText === item_input7.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input7.title
+    }
+})}
+if (document.contains(document.getElementById("item8"))) {li8.addEventListener('click', function() {
+    if (display2.innerText === item_input8.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input8.title
+    }
+})}
+if (document.contains(document.getElementById("item9"))) {li9.addEventListener('click', function() {
+    if (display2.innerText === item_input9.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input9.title
+    }
+})}
+if (document.contains(document.getElementById("item10"))){ li10.addEventListener('click', function() {
+      if (display2.innerText === item_input10.title){
+          typebutton.classList.toggle("corner-dark")
+          display2.innerText = "Всё"
+      } else {
+          display2.innerText = item_input10.title
+      }
+  })
+}
+if (document.contains(document.getElementById("item5")))  {li5.addEventListener('click', function() {
+      if (display2.innerText === item_input5.title){
+          typebutton.classList.toggle("corner-dark")
+          display2.innerText = "Всё"
+      } else {
+          display2.innerText = item_input5.title
+      }
+  })}
     if (display.innerText === item_input2.title){
         typebutton.classList.toggle("corner-dark")
         display.innerText = "Всё"
+        undertype.classList.add("hidden")
+        martop.classList.remove('mar-top')
     } else {
         display.innerText = item_input2.title
+        undertype.classList.remove("hidden")
+        martop.classList.add('mar-top')
     }
 })
 item_input3.addEventListener('click', function() {
+  if (display.innerText === item_input2.title) {
+      martop2.classList.add('mar-top')
+      martop2.classList.add('mar-bot')
+      martop2.classList.remove('hidden')
+    } else {
+      martop2.classList.toggle('mar-top')
+      martop2.classList.toggle('mar-bot')
+      martop2.classList.toggle('hidden')
+    }
+  if (martop.classList.contains('mar-top')){
+    martop.classList.add('hidden')
+    martop.classList.remove('mar-bot')
+    martop.classList.remove('mar-top')
+  }
+  if (document.contains(document.getElementById("item5"))){
+    document.getElementById("item5").remove();
+    document.getElementById("li5").remove();
+  }
+  if (document.contains(document.getElementById("item6"))){
+    document.getElementById("item6").remove();
+    document.getElementById("li6").remove();
+  }
+  if (document.contains(document.getElementById("item7"))){
+    document.getElementById("item7").remove();
+    document.getElementById("li7").remove();
+  }
+  if (document.contains(document.getElementById("item8"))){
+    document.getElementById("item8").remove();
+    document.getElementById("li8").remove();
+  }
+  if (document.contains(document.getElementById("item9"))){
+    document.getElementById("item9").remove();
+    document.getElementById("li9").remove();
+  }
+  if (document.contains(document.getElementById("item10"))){
+    document.getElementById("item10").remove();
+    document.getElementById("li10").remove();
+  }
+
+  var item_input5 = document.createElement("input")
+  item_input5.setAttribute('id', 'item5')
+  item_input5.setAttribute('class', 'input')
+  item_input5.setAttribute('type', 'radio')
+  item_input5.setAttribute('name', 'item_5')
+  item_input5.setAttribute('title', 'Джинсы')
+  var li5 = document.createElement("li")
+  li5.setAttribute('id', 'li5')
+  li5.setAttribute('class', 'li li5')
+  li5.innerText = "Джинсы"
+  typebutton2.insertBefore(item_input5, typebutton2.childNodes[2])
+  ul.insertBefore(li5, ul.childNodes[2])
+
+    var item_input7 = document.createElement("input")
+    item_input7.setAttribute('id', 'item7')
+    item_input7.setAttribute('class', 'input')
+    item_input7.setAttribute('type', 'radio')
+    item_input7.setAttribute('name', 'item_7')
+    item_input7.setAttribute('title', 'Шорты')
+    var li7 = document.createElement("li")
+    li7.setAttribute('id', 'li7')
+    li7.setAttribute('class', 'li li5')
+    li7.innerText = "Шорты"
+    typebutton2.insertBefore(item_input7, typebutton2.childNodes[2])
+    ul.insertBefore(li7, ul.childNodes[2])
+
+    var item_input8 = document.createElement("input")
+    item_input8.setAttribute('id', 'item8')
+    item_input8.setAttribute('class', 'input')
+    item_input8.setAttribute('type', 'radio')
+    item_input8.setAttribute('name', 'item_8')
+    item_input8.setAttribute('title', 'Брюки')
+    var li8 = document.createElement("li")
+    li8.setAttribute('id', 'li8')
+    li8.setAttribute('class', 'li li5')
+    li8.innerText = "Брюки"
+    typebutton2.insertBefore(item_input8, typebutton2.childNodes[2])
+    ul.insertBefore(li8, ul.childNodes[2])
+
+    var item_input9 = document.createElement("input")
+    item_input9.setAttribute('id', 'item9')
+    item_input9.setAttribute('class', 'input')
+    item_input9.setAttribute('type', 'radio')
+    item_input9.setAttribute('name', 'item_9')
+    item_input9.setAttribute('title', 'Спорт. штаны')
+    var li9 = document.createElement("li")
+    li9.setAttribute('id', 'li9')
+    li9.setAttribute('class', 'li li5')
+    li9.innerText = "Спорт. штаны"
+    typebutton2.insertBefore(item_input9, typebutton2.childNodes[2])
+    ul.insertBefore(li9, ul.childNodes[2])
+    if (document.contains(document.getElementById("item7"))) {li7.addEventListener('click', function() {
+    if (display2.innerText === item_input7.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input7.title
+    }
+})}
+if (document.contains(document.getElementById("item8"))) {li8.addEventListener('click', function() {
+    if (display2.innerText === item_input8.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input8.title
+    }
+})}
+if (document.contains(document.getElementById("item9"))) {li9.addEventListener('click', function() {
+    if (display2.innerText === item_input9.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input9.title
+    }
+})}
+if (document.contains(document.getElementById("item5")))  {li5.addEventListener('click', function() {
+      if (display2.innerText === item_input5.title){
+          typebutton.classList.toggle("corner-dark")
+          display2.innerText = "Всё"
+      } else {
+          display2.innerText = item_input5.title
+      }
+  })}
     if (display.innerText === item_input3.title){
         typebutton.classList.toggle("corner-dark")
         display.innerText = "Всё"
+        undertype.classList.add("hidden")
+        martop.classList.remove('mar-top')
     } else {
         display.innerText = item_input3.title
+        undertype.classList.remove("hidden")
+        martop.classList.add('mar-top')
     }
 })
 item_input4.addEventListener('click', function() {
+  undertype.classList.toggle('mar-bot')
+  if (martop.classList.contains('mar-top')){
+    martop.classList.remove('mar-top')
+    martop.classList.remove('mar-bot')
+    martop.classList.add('hidden')
+  }
+  if (martop2.classList.contains('mar-top')){
+    martop2.classList.remove('mar-top')
+    martop2.classList.remove('mar-bot')
+    martop2.classList.add('hidden')
+  }
+
+  if (document.contains(document.getElementById("item5"))){
+    document.getElementById("item5").remove();
+    document.getElementById("li5").remove();
+  }
+  if (document.contains(document.getElementById("item6"))){
+    document.getElementById("item6").remove();
+    document.getElementById("li6").remove();
+  }
+  if (document.contains(document.getElementById("item7"))){
+    document.getElementById("item7").remove();
+    document.getElementById("li7").remove();
+  }
+  if (document.contains(document.getElementById("item8"))){
+    document.getElementById("item8").remove();
+    document.getElementById("li8").remove();
+  }
+  if (document.contains(document.getElementById("item9"))){
+    document.getElementById("item9").remove();
+    document.getElementById("li9").remove();
+  }
+  if (document.contains(document.getElementById("item10"))){
+    document.getElementById("item10").remove();
+    document.getElementById("li10").remove();
+  }
+
+  var item_input5 = document.createElement("input")
+  item_input5.setAttribute('id', 'item5')
+  item_input5.setAttribute('class', 'input')
+  item_input5.setAttribute('type', 'radio')
+  item_input5.setAttribute('name', 'item_5')
+  item_input5.setAttribute('title', 'Головные уборы')
+  var li5 = document.createElement("li")
+  li5.setAttribute('id', 'li5')
+  li5.setAttribute('class', 'li li5')
+  li5.innerText = "Головные уборы"
+  typebutton2.insertBefore(item_input5, typebutton2.childNodes[2])
+  ul.insertBefore(li5, ul.childNodes[2])
+
+    var item_input7 = document.createElement("input")
+    item_input7.setAttribute('id', 'item7')
+    item_input7.setAttribute('class', 'input')
+    item_input7.setAttribute('type', 'radio')
+    item_input7.setAttribute('name', 'item_7')
+    item_input7.setAttribute('title', 'Другое')
+    var li7 = document.createElement("li")
+    li7.setAttribute('id', 'li7')
+    li7.setAttribute('class', 'li li5')
+    li7.innerText = "Другое"
+    typebutton2.insertBefore(item_input7, typebutton2.childNodes[2])
+    ul.insertBefore(li7, ul.childNodes[2])
+
+    var item_input8 = document.createElement("input")
+    item_input8.setAttribute('id', 'item8')
+    item_input8.setAttribute('class', 'input')
+    item_input8.setAttribute('type', 'radio')
+    item_input8.setAttribute('name', 'item_8')
+    item_input8.setAttribute('title', 'Трусы')
+    var li8 = document.createElement("li")
+    li8.setAttribute('id', 'li8')
+    li8.setAttribute('class', 'li li5')
+    li8.innerText = "Трусы"
+    typebutton2.insertBefore(item_input8, typebutton2.childNodes[2])
+    ul.insertBefore(li8, ul.childNodes[2])
+
+    var item_input9 = document.createElement("input")
+    item_input9.setAttribute('id', 'item9')
+    item_input9.setAttribute('class', 'input')
+    item_input9.setAttribute('type', 'radio')
+    item_input9.setAttribute('name', 'item_9')
+    item_input9.setAttribute('title', 'Носки')
+    var li9 = document.createElement("li")
+    li9.setAttribute('id', 'li9')
+    li9.setAttribute('class', 'li li5')
+    li9.innerText = "Носки"
+    typebutton2.insertBefore(item_input9, typebutton2.childNodes[2])
+    ul.insertBefore(li9, ul.childNodes[2])
+    if (document.contains(document.getElementById("item7"))) {li7.addEventListener('click', function() {
+    if (display2.innerText === item_input7.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input7.title
+    }
+})}
+if (document.contains(document.getElementById("item8"))) {li8.addEventListener('click', function() {
+    if (display2.innerText === item_input8.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input8.title
+    }
+})}
+if (document.contains(document.getElementById("item9"))) {li9.addEventListener('click', function() {
+    if (display2.innerText === item_input9.title){
+        typebutton.classList.toggle("corner-dark")
+        display2.innerText = "Всё"
+    } else {
+        display2.innerText = item_input9.title
+    }
+})}
+if (document.contains(document.getElementById("item5")))  {li5.addEventListener('click', function() {
+      if (display2.innerText === item_input5.title){
+          typebutton.classList.toggle("corner-dark")
+          display2.innerText = "Всё"
+      } else {
+          display2.innerText = item_input5.title
+      }
+  })}
     if (display.innerText === item_input4.title){
         typebutton.classList.toggle("corner-dark")
         display.innerText = "Всё"
+        undertype.classList.add("hidden")
+        martop.classList.remove('mar-top')
     } else {
         display.innerText = item_input4.title
+        undertype.classList.remove("hidden")
+        martop.classList.add('mar-top')
     }
 })
 
@@ -157,6 +741,12 @@ item_input4.addEventListener('click', function() {
 var selectbutton1 = document.getElementById("select-button1")
 var selectbutton2 = document.getElementById("select-button2")
 var selectbutton3 = document.getElementById("select-button3")
+
+var selectbutton5 = document.getElementById("select-button5")
+var selectbutton6 = document.getElementById("select-button6")
+var selectbutton7 = document.getElementById("select-button7")
+var selectbutton8 = document.getElementById("select-button8")
+var selectbutton9 = document.getElementById("select-button9")
 
 selectbutton1.addEventListener("click", function() {
     selectbutton1.classList.toggle('button-flex-dark-conter')
@@ -197,15 +787,167 @@ selectbutton3.addEventListener("click", function() {
 
 
 
+
 var sizebutton1 = document.getElementById("size-button1")
 var sizebutton2 = document.getElementById("size-button2")
 var sizebutton3 = document.getElementById("size-button3")
 var sizebutton4 = document.getElementById("size-button4")
 
+var sizebutton5 = document.getElementById("size-button5")
+var sizebutton6 = document.getElementById("size-button6")
+var sizebutton7 = document.getElementById("size-button7")
+var sizebutton8 = document.getElementById("size-button8")
+var sizebutton9 = document.getElementById("size-button9")
+var sizebutton10 = document.getElementById("size-button10")
+
 var sizeinput = document.getElementById("input-size")
 var divmargin = document.getElementById("div-margin")
 var sizebutton = document.getElementById("button-size")
 
+sizebutton5.addEventListener("click", function() {
+    sizebutton5.classList.toggle('button-flex-dark-conter')
+    sizebutton5.classList.toggle('text-flex-dark-conter')
+    if (sizebutton6.classList.contains('text-flex-dark-conter')){
+        sizebutton6.classList.toggle('text-flex-dark-conter')
+        sizebutton6.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton7.classList.contains('text-flex-dark-conter')){
+        sizebutton7.classList.toggle('text-flex-dark-conter')
+        sizebutton7.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton8.classList.contains('text-flex-dark-conter')){
+        sizebutton8.classList.toggle('text-flex-dark-conter')
+        sizebutton8.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton9.classList.contains('text-flex-dark-conter')){
+        sizebutton9.classList.toggle('text-flex-dark-conter')
+        sizebutton9.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton10.classList.contains('text-flex-dark-conter')){
+        sizebutton10.classList.toggle('text-flex-dark-conter')
+        sizebutton10.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton6.addEventListener("click", function() {
+    sizebutton6.classList.toggle('button-flex-dark-conter')
+    sizebutton6.classList.toggle('text-flex-dark-conter')
+    if (sizebutton5.classList.contains('text-flex-dark-conter')){
+        sizebutton5.classList.toggle('text-flex-dark-conter')
+        sizebutton5.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton7.classList.contains('text-flex-dark-conter')){
+        sizebutton7.classList.toggle('text-flex-dark-conter')
+        sizebutton7.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton8.classList.contains('text-flex-dark-conter')){
+        sizebutton8.classList.toggle('text-flex-dark-conter')
+        sizebutton8.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton9.classList.contains('text-flex-dark-conter')){
+        sizebutton9.classList.toggle('text-flex-dark-conter')
+        sizebutton9.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton10.classList.contains('text-flex-dark-conter')){
+        sizebutton10.classList.toggle('text-flex-dark-conter')
+        sizebutton10.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton7.addEventListener("click", function() {
+    sizebutton7.classList.toggle('button-flex-dark-conter')
+    sizebutton7.classList.toggle('text-flex-dark-conter')
+    if (sizebutton6.classList.contains('text-flex-dark-conter')){
+        sizebutton6.classList.toggle('text-flex-dark-conter')
+        sizebutton6.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton5.classList.contains('text-flex-dark-conter')){
+        sizebutton5.classList.toggle('text-flex-dark-conter')
+        sizebutton5.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton8.classList.contains('text-flex-dark-conter')){
+        sizebutton8.classList.toggle('text-flex-dark-conter')
+        sizebutton8.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton9.classList.contains('text-flex-dark-conter')){
+        sizebutton9.classList.toggle('text-flex-dark-conter')
+        sizebutton9.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton10.classList.contains('text-flex-dark-conter')){
+        sizebutton10.classList.toggle('text-flex-dark-conter')
+        sizebutton10.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton8.addEventListener("click", function() {
+    sizebutton8.classList.toggle('button-flex-dark-conter')
+    sizebutton8.classList.toggle('text-flex-dark-conter')
+    if (sizebutton6.classList.contains('text-flex-dark-conter')){
+        sizebutton6.classList.toggle('text-flex-dark-conter')
+        sizebutton6.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton7.classList.contains('text-flex-dark-conter')){
+        sizebutton7.classList.toggle('text-flex-dark-conter')
+        sizebutton7.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton5.classList.contains('text-flex-dark-conter')){
+        sizebutton5.classList.toggle('text-flex-dark-conter')
+        sizebutton5.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton9.classList.contains('text-flex-dark-conter')){
+        sizebutton9.classList.toggle('text-flex-dark-conter')
+        sizebutton9.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton10.classList.contains('text-flex-dark-conter')){
+        sizebutton10.classList.toggle('text-flex-dark-conter')
+        sizebutton10.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton9.addEventListener("click", function() {
+    sizebutton9.classList.toggle('button-flex-dark-conter')
+    sizebutton9.classList.toggle('text-flex-dark-conter')
+    if (sizebutton6.classList.contains('text-flex-dark-conter')){
+        sizebutton6.classList.toggle('text-flex-dark-conter')
+        sizebutton6.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton7.classList.contains('text-flex-dark-conter')){
+        sizebutton7.classList.toggle('text-flex-dark-conter')
+        sizebutton7.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton8.classList.contains('text-flex-dark-conter')){
+        sizebutton8.classList.toggle('text-flex-dark-conter')
+        sizebutton8.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton5.classList.contains('text-flex-dark-conter')){
+        sizebutton5.classList.toggle('text-flex-dark-conter')
+        sizebutton5.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton10.classList.contains('text-flex-dark-conter')){
+        sizebutton10.classList.toggle('text-flex-dark-conter')
+        sizebutton10.classList.toggle('button-flex-dark-conter')
+    }
+});
+sizebutton10.addEventListener("click", function() {
+    sizebutton10.classList.toggle('button-flex-dark-conter')
+    sizebutton10.classList.toggle('text-flex-dark-conter')
+    if (sizebutton6.classList.contains('text-flex-dark-conter')){
+        sizebutton6.classList.toggle('text-flex-dark-conter')
+        sizebutton6.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton7.classList.contains('text-flex-dark-conter')){
+        sizebutton7.classList.toggle('text-flex-dark-conter')
+        sizebutton7.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton8.classList.contains('text-flex-dark-conter')){
+        sizebutton8.classList.toggle('text-flex-dark-conter')
+        sizebutton8.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton9.classList.contains('text-flex-dark-conter')){
+        sizebutton9.classList.toggle('text-flex-dark-conter')
+        sizebutton9.classList.toggle('button-flex-dark-conter')
+    }
+    if (sizebutton5.classList.contains('text-flex-dark-conter')){
+        sizebutton5.classList.toggle('text-flex-dark-conter')
+        sizebutton5.classList.toggle('button-flex-dark-conter')
+    }
+});
 sizebutton1.addEventListener("click", function() {
     sizebutton1.classList.toggle('button-flex-dark-conter')
     sizebutton1.classList.toggle('text-flex-dark-conter')
