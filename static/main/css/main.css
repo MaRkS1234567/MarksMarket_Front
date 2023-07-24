@@ -159,9 +159,6 @@ body {
 .search-input::placeholder {
   font-size: 12px; }
 
-input:focus {
-  outline: none; }
-
 .product {
   display: flex;
   width: 150px;
@@ -259,8 +256,7 @@ input:focus {
 body {
   margin: 0;
   background: black;
-  color: white;
-  display: grid; }
+  color: white; }
 
 header {
   max-height: 50px;
@@ -284,6 +280,45 @@ header .activator {
   border: 4px solid #FFF;
   border-color: #fff !important; }
 
+.trader-input[type=number]::-webkit-inner-spin-button,
+.trader-input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; }
+  .trader-input[type=number]::-webkit-inner-spin-button .trader-input,
+  .trader-input[type=number]::-webkit-outer-spin-button .trader-input {
+    width: calc(100% - 30px) !important; }
+
+.plus-minus {
+  margin-top: 2px;
+  margin-right: 2px; }
+
+.plus {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  border-radius: 8px 0px 0 8px;
+  background-color: #C940FC; }
+
+.minus {
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  border-radius: 0px 8px 8px 0px;
+  background-color: #C940FC;
+  margin-left: 7px; }
+
+.plus:hover {
+  background-color: #fff;
+  color: #C940FC; }
+
+.minus:hover {
+  background-color: #fff;
+  color: #C940FC; }
+
+.span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal; }
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -291,7 +326,7 @@ ul {
 
 nav {
   left: 75px;
-  width: calc(100% - 107px);
+  width: calc(100% - 100px);
   height: 50px;
   background: white;
   position: absolute;
@@ -428,9 +463,21 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #FFF;
   border-radius: 8px;
   color: #FFF;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   padding: 5px;
   text-decoration: none; }
+
+.brand {
+  border: 4px solid #C940FC;
+  background: #C940FC;
+  box-shadow: -4px 4px 0px 0px #000000;
+  border-radius: 8px;
+  color: #000000;
+  margin-bottom: 28px;
+  padding: 5px;
+  text-decoration: none;
+  height: 42px !important;
+  font-size: 12px; }
 
 .button-dark {
   border: 4px solid #C940FC;
@@ -438,9 +485,11 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #000000;
   border-radius: 8px;
   color: #000000;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   padding: 5px;
-  text-decoration: none; }
+  text-decoration: none;
+  height: 42px !important;
+  font-size: 12px; }
 
 .button:hover {
   border: 4px solid #ffffff;
@@ -461,7 +510,7 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #C940FC;
   border-radius: 8px;
   color: #C940FC;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   padding: 5px; }
 
 .text-dark {
@@ -470,7 +519,8 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #C940FC;
   border-radius: 8px;
   color: #C940FC;
-  padding: 5px; }
+  padding: 5px;
+  height: 42px !important; }
 
 .hovernone {
   border: 4px solid #C940FC;
@@ -494,7 +544,7 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #000000;
   border-radius: 8px;
   color: #000000;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   padding: 5px;
   text-decoration: none;
   border-radius: 0;
@@ -508,7 +558,7 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #C940FC;
   border-radius: 8px;
   color: #C940FC;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   padding: 5px;
   text-decoration: none;
   border-radius: 0;
@@ -522,15 +572,15 @@ section.range-slider {
   box-shadow: -4px 4px 0px 0px #000000;
   border-radius: 8px;
   color: #000000;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   padding: 5px;
   text-decoration: none; }
 
 .mar-top {
-  margin-top: 25px !important; }
+  margin-top: 28px !important; }
 
 .mar-bot {
-  margin-bottom: 25px !important; }
+  margin-bottom: 28px !important; }
 
 details {
   position: relative;
@@ -588,7 +638,7 @@ details[open] summary:after {
   color: #C940FC; }
 
 details[open] summary.radios {
-  max-height: 40px;
+  max-height: 42px;
   box-shadow: -4px 4px 0px 0px #C940FC;
   border-radius: 0 8px 8px 0;
   overflow-x: auto;
@@ -596,7 +646,7 @@ details[open] summary.radios {
   color: #C940FC !important; }
 
 .ul {
-  margin-top: 20px !important;
+  margin-top: 23px !important;
   width: 100%;
   background: #000000;
   position: absolute;
@@ -625,7 +675,7 @@ details[open] summary.radios {
 
 /* FAKE SELECT */
 summary.radios {
-  max-height: 40px;
+  height: 42px !important;
   box-shadow: -4px 4px 0px 0px #000000;
   border-radius: 0 8px 8px 0;
   overflow-x: auto;
@@ -676,6 +726,85 @@ label span {
 .corner-dark {
   background: black;
   box-shadow: -4px 4px 0px 0px #C940FC;
-  color: #C940FC !important; }
+  color: #C940FC !important;
+  height: 42px !important; }
+
+.a-brands {
+  border-radius: 8px 0 0 8px;
+  border: 4px solid #000000;
+  background: #000000;
+  box-shadow: -4px 4px 0px 0px #C940FC;
+  color: #C940FC;
+  padding: 5px;
+  text-decoration: none;
+  width: 100%;
+  height: 42px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  width: 50%;
+  padding-top: 7.5px; }
+
+.b-brands {
+  border-radius: 0px 8px 8px 0px;
+  border: 4px solid #C940FC;
+  background: #C940FC;
+  box-shadow: -4px 4px 0px 0px #000000;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+  width: 100%;
+  height: 42px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  width: 50%;
+  padding-top: 7.5px;
+  padding-left: 16px; }
+
+.b-brands:hover {
+  color: black; }
+
+.b-brands:after {
+  content: '';
+  color: #000000;
+  display: inline-block;
+  float: right;
+  width: .5rem;
+  height: .5rem;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  border-bottom-right-radius: 2px;
+  transform: rotate(45deg) translate(50%, 0%);
+  transform-origin: center center;
+  transition: transform ease-in-out 100ms;
+  margin-right: 2px;
+  margin-top: 2px; }
+
+input[type="checkbox"] {
+  width: 23px;
+  height: 23px;
+  margin-top: 0px;
+  margin-right: 2px;
+  accent-color: black;
+  clip-path: circle(38% at 50% 50%);
+  outline-style: none;
+  line-height: 0;
+  border-inline-color: white; }
+
+input[type="checkbox"] ~ label:before {
+  border: none; }
+
+input:focus {
+  outline: 0; }
+
+.brand-list {
+  overflow-y: scroll;
+  height: calc(100vh - 310px) !important;
+  width: calc(100% + 4px);
+  margin-left: -4px; }
+
+.brand-list::-webkit-scrollbar {
+  display: none; }
 
 /*# sourceMappingURL=main.css.map */
