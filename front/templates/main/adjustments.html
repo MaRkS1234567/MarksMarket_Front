@@ -100,8 +100,39 @@
         <label class="label" style="margin-top: 4px; margin-left: 2px;" for="legit">Наличие легита</label>
         <input type="checkbox" id="legit" name="legit">
       </div>
+      <div class="search" style="margin-top: 28px;">
+        <input id="city" type="text" onkeyup="onTypingCity()" placeholder="Введите ваш город..." class="search-input">
+        <img src="//s.svgbox.net/hero-outline.svg?fill=C940FC#location-marker" alt="" style="margin-top: 7px; margin-right: 7px;" width="20px" height="20px">
+      </div>
+      <div style="margin-bottom: 28px; margin-top: 28px;" class="d-flex brand hidden" id="locationDiv">
+        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="location">Искать только в моём городе</label>
+        <input type="checkbox" id="location" name="location">
+      </div>
+      <div class="d-flex brand hidden" id="meetDiv">
+        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="meet">Только личная встреча</label>
+        <input type="checkbox" id="meet" name="meet">
+      </div>
+      <div class="search" style="margin-top: 28px;">
+        <input id="count-couple" type="number" placeholder="Минимальное кол-во пар в наличии..." class="search-input">
+        <img src="//s.svgbox.net/hero-outline.svg?fill=C940FC#shopping-bag" alt="" style="margin-top: 7px; margin-right: 7px;" width="20px" height="20px">
+      </div>
   </div>
   <script>
+    var meetDiv = document.getElementById('meetDiv')
+    var meetEl = document.getElementById('meet')
+    var locationDiv = document.getElementById('locationDiv')
+    var city = document.getElementById('city')
+
+    function onTypingCity(){
+      if(city.value.length == 0){
+        locationDiv.classList.add('hidden')
+        meetDiv.classList.add('hidden')
+      } else {
+        locationDiv.classList.remove('hidden')
+        meetDiv.classList.remove('hidden')
+      }
+    }
+
     var ratingDiv = document.getElementById('ratingDiv')
     var plus = document.getElementById('plus')
     var minus = document.getElementById('minus')
@@ -191,6 +222,9 @@
   var martop2 = document.getElementById("martop2")
 
   item_input1.addEventListener('click', function() {
+    if(!sizeinput.classList.contains("hidden")){
+      sizeinput.classList.toggle("hidden")
+    }
     martop.classList.toggle('hidden')
     martop.classList.toggle('mar-bot')
     martop.classList.toggle('mar-top')
@@ -340,6 +374,9 @@
       }
   })
   item_input2.addEventListener('click', function() {
+    if(!sizeinput.classList.contains("hidden")){
+      sizeinput.classList.toggle("hidden")
+    }
       if (display.innerText === item_input3.title) {
         martop2.classList.add('mar-top')
         martop2.classList.add('mar-bot')
@@ -517,6 +554,9 @@
       }
   })
   item_input3.addEventListener('click', function() {
+    if(!sizeinput.classList.contains("hidden")){
+      sizeinput.classList.toggle("hidden")
+    }
     if (display.innerText === item_input2.title) {
         martop2.classList.add('mar-top')
         martop2.classList.add('mar-bot')
@@ -651,6 +691,9 @@
       }
   })
   item_input4.addEventListener('click', function() {
+    if(!sizeinput.classList.contains("hidden")){
+      sizeinput.classList.toggle("hidden")
+    }
     undertype.classList.toggle('mar-bot')
     if (martop.classList.contains('mar-top')){
       martop.classList.remove('mar-top')
@@ -1132,60 +1175,88 @@
     </form>
     <div id="brand-list" class="brand-list">
       <div style="margin-left: 4px;" class="d-flex brand" id="ADIDASEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="ADIDAS">ADIDAS</label>
+        <label class="label" id="ADIDASL" style="margin-top: 4px; margin-left: 2px;" for="ADIDAS">ADIDAS</label>
         <input type="checkbox" id="ADIDAS" name="ADIDAS">
       </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="ARMANIEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="ARMANI">ARMANI</label>
+        <label class="label" id="ARMANIL" style="margin-top: 4px; margin-left: 2px;" for="ARMANI">ARMANI</label>
         <input type="checkbox" id="ARMANI" name="ARMANI">
       </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="ASICSEL">
+        <label class="label" id="ASICSL" style="margin-top: 4px; margin-left: 2px;" for="ASICS">ASICS</label>
+        <input type="checkbox" id="ASICS" name="ASICS">
+      </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="BAPEEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="BAPE">BAPE</label>
+        <label class="label" id="BAPEL" style="margin-top: 4px; margin-left: 2px;" for="BAPE">BAPE</label>
         <input type="checkbox" id="BAPE" name="BAPE">
       </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="CONVERSEL">
+        <label class="label" id="CONVERSL" style="margin-top: 4px; margin-left: 2px;" for="CONVERS">CONVERS</label>
+        <input type="checkbox" id="CONVERS" name="CONVERS">
+      </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="CPEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="CP">CP COMPANY</label>
+        <label class="label" id="CPL" style="margin-top: 4px; margin-left: 2px;" for="CP">CP COMPANY</label>
         <input type="checkbox" id="CP" name="CP">
       </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="FENDIEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="FENDI">FENDI</label>
+        <label class="label" id="FENDIL" style="margin-top: 4px; margin-left: 2px;" for="FENDI">FENDI</label>
         <input type="checkbox" id="FENDI" name="FENDI">
       </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="GUCCIEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="GUCCI">GUCCI</label>
+        <label class="label" id="GUCCIL" style="margin-top: 4px; margin-left: 2px;" for="GUCCI">GUCCI</label>
         <input type="checkbox" id="GUCCI" name="GUCCI">
       </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="LOUISEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="LOUIS VUITTON">LOUIS VUITTON</label>
-        <input style="margin-left: 4px;" type="checkbox" id="LOUIS" name="LOUIS VUITTON">
+        <label class="label" id="LOUISL" style="margin-top: 4px; margin-left: 2px;" for="LOUIS">LOUIS VUITTON</label>
+        <input style="margin-left: 4px;" type="checkbox" id="LOUIS" name="LOUIS">
+      </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="NEWEL">
+        <label class="label" id="NEWL" style="margin-top: 4px; margin-left: 2px;" for="NEW">NEW BALANCE</label>
+        <input style="margin-left: 4px;" type="checkbox" id="NEW" name="NEW">
       </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="NIKEEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="NIKE">NIKE</label>
+        <label class="label" id="NIKEL" style="margin-top: 4px; margin-left: 2px;" for="NIKE">NIKE</label>
         <input style="margin-left: 4px;" type="checkbox" id="NIKE" name="NIKE">
       </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="OFFEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="OFF">OFF WHITE</label>
+        <label class="label" id="OFFL" style="margin-top: 4px; margin-left: 2px;" for="OFF">OFF WHITE</label>
         <input type="checkbox" id="OFF" name="OFF">
       </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="OLDEL">
+        <label class="label" id="OLDL" style="margin-top: 4px; margin-left: 2px;" for="OLD">OLD ORDER</label>
+        <input type="checkbox" id="OLD" name="OLD">
+      </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="PUMAEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="PUMA">PUMA</label>
+        <label class="label" id="PUMAL" style="margin-top: 4px; margin-left: 2px;" for="PUMA">PUMA</label>
         <input type="checkbox" id="PUMA" name="PUMA">
       </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="REEBOKEL">
+        <label class="label" id="REEBOKL" style="margin-top: 4px; margin-left: 2px;" for="REEBOK">REEBOK</label>
+        <input type="checkbox" id="REEBOK" name="REEBOK">
+      </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="STONEEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="STONE">STONE ISLAND</label>
+        <label class="label" id="STONEL" style="margin-top: 4px; margin-left: 2px;" for="STONE">STONE ISLAND</label>
         <input type="checkbox" id="STONE" name="STONE">
       </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="SUPREMEEL">
+        <label class="label" id="SUPREMEL" style="margin-top: 4px; margin-left: 2px;" for="SUPREME">SUPREME</label>
+        <input type="checkbox" id="SUPREME" name="SUPREME">
+      </div>
+      <div style="margin-left: 4px;" class="d-flex brand" id="UNDEREL">
+        <label class="label" id="UNDERL" style="margin-top: 4px; margin-left: 2px;" for="UNDER">UNDER ARMOUR</label>
+        <input type="checkbox" id="UNDER" name="UNDER">
+      </div>
       <div style="margin-left: 4px;" class="d-flex brand" id="TRAVISEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="TRAVIS">TRAVIS SCOTT</label>
+        <label class="label" id="TRAVISL" style="margin-top: 4px; margin-left: 2px;" for="TRAVIS">TRAVIS SCOTT</label>
         <input type="checkbox" id="TRAVIS" name="TRAVIS">
       </div>
-      <div style="margin-left: 4px;" class="d-flex brand" id="VLONEEL">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="VLONE">VLONE</label>
-        <input type="checkbox" id="VLONE" name="VLONE">
+      <div style="margin-left: 4px;" class="d-flex brand" id="VANSEL">
+        <label class="label" id="VANSL" style="margin-top: 4px; margin-left: 2px;" for="VANS">VANS</label>
+        <input type="checkbox" id="VANS" name="VANS">
       </div>
-      <div style="margin-bottom: 7px!important; margin-left: 4px;" class="d-flex brand">
-        <label class="label" style="margin-top: 4px; margin-left: 2px;" for="adidas">ADIDAS</label>
-        <input type="checkbox" id="adidas" name="adidas">
+      <div style="margin-left: 4px;" class="d-flex brand" id="VLONEEL">
+        <label class="label" id="VLONEL" style="margin-top: 4px; margin-left: 2px;" for="VLONE">VLONE</label>
+        <input type="checkbox" id="VLONE" name="VLONE">
       </div>
     </div>
     <div id="brand-list2">
@@ -1199,16 +1270,211 @@
 
 <script>
 
+var BrandList = []
+
+var ADIDAS = document.getElementById('ADIDASL')
+ADIDAS.addEventListener('click', function(){
+  if (BrandList.includes('ADIDAS')){
+    var indexBrand = BrandList.indexOf('ADIDAS')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(ADIDAS.innerText)
+  }
+})
+var ARMANI = document.getElementById('ARMANIL')
+ARMANI.addEventListener('click', function(){
+  if (BrandList.includes('ARMANI')){
+    var indexBrand = BrandList.indexOf('ARMANI')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(ARMANI.innerText)
+  }
+})
+var ASICS = document.getElementById('ASICSL')
+ASICS.addEventListener('click', function(){
+  if (BrandList.includes('ASICS')){
+    var indexBrand = BrandList.indexOf('ASICS')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(ASICS.innerText)
+  }
+})
+var BAPE = document.getElementById('BAPEL')
+BAPE.addEventListener('click', function(){
+  if (BrandList.includes('BAPE')){
+    var indexBrand = BrandList.indexOf('BAPE')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(BAPE.innerText)
+  }
+})
+var CONVERS = document.getElementById('CONVERSL')
+CONVERS.addEventListener('click', function(){
+  if (BrandList.includes('CONVERS')){
+    var indexBrand = BrandList.indexOf('CONVERS')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(CONVERS.innerText)
+  }
+})
+var CP = document.getElementById('CPL')
+CP.addEventListener('click', function(){
+  if (BrandList.includes('CP')){
+    var indexBrand = BrandList.indexOf('CP')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(CP.innerText)
+  }
+})
+var FENDI = document.getElementById('FENDIL')
+FENDI.addEventListener('click', function(){
+  if (BrandList.includes('FENDI')){
+    var indexBrand = BrandList.indexOf('FENDI')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(FENDI.innerText)
+  }
+})
+var GUCCI = document.getElementById('GUCCIL')
+GUCCI.addEventListener('click', function(){
+  if (BrandList.includes('GUCCI')){
+    var indexBrand = BrandList.indexOf('GUCCI')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(GUCCI.innerText)
+  }
+})
+var LOUIS = document.getElementById('LOUISL')
+LOUIS.addEventListener('click', function(){
+  if (BrandList.includes('LOUIS')){
+    var indexBrand = BrandList.indexOf('LOUIS')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(LOUIS.innerText)
+  }
+})
+var NEW = document.getElementById('NEWL')
+NEW.addEventListener('click', function(){
+  if (BrandList.includes('NEW')){
+    var indexBrand = BrandList.indexOf('NEW')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(NEW.innerText)
+  }
+})
+var NIKE = document.getElementById('NIKEL')
+NIKE.addEventListener('click', function(){
+  if (BrandList.includes('NIKE')){
+    var indexBrand = BrandList.indexOf('NIKE')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(NIKE.innerText)
+  }
+})
+var OFF = document.getElementById('OFFL')
+OFF.addEventListener('click', function(){
+  if (BrandList.includes('OFF')){
+    var indexBrand = BrandList.indexOf('OFF')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(OFF.innerText)
+  }
+})
+var OLD = document.getElementById('OLDL')
+OLD.addEventListener('click', function(){
+  if (BrandList.includes('OLD')){
+    var indexBrand = BrandList.indexOf('OLD')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(OLD.innerText)
+  }
+})
+var PUMA = document.getElementById('PUMAL')
+PUMA.addEventListener('click', function(){
+  if (BrandList.includes('PUMA')){
+    var indexBrand = BrandList.indexOf('PUMA')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(PUMA.innerText)
+  }
+})
+var REEBOK = document.getElementById('REEBOKL')
+REEBOK.addEventListener('click', function(){
+  if (BrandList.includes('REEBOK')){
+    var indexBrand = BrandList.indexOf('REEBOK')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(REEBOK.innerText)
+  }
+})
+var STONE = document.getElementById('STONEL')
+STONE.addEventListener('click', function(){
+  if (BrandList.includes('STONE')){
+    var indexBrand = BrandList.indexOf('STONE')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(STONE.innerText)
+  }
+})
+var SUPREME = document.getElementById('SUPREMEL')
+SUPREME.addEventListener('click', function(){
+  if (BrandList.includes('SUPREME')){
+    var indexBrand = BrandList.indexOf('SUPREME')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(SUPREME.innerText)
+  }
+})
+var UNDER = document.getElementById('UNDERL')
+UNDER.addEventListener('click', function(){
+  if (BrandList.includes('UNDER')){
+    var indexBrand = BrandList.indexOf('UNDER')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(UNDER.innerText)
+  }
+})
+var TRAVIS = document.getElementById('TRAVISL')
+TRAVIS.addEventListener('click', function(){
+  if (BrandList.includes('TRAVIS')){
+    var indexBrand = BrandList.indexOf('TRAVIS')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(TRAVIS.innerText)
+  }
+})
+var VANS = document.getElementById('VANSL')
+VANS.addEventListener('click', function(){
+  if (BrandList.includes('VANS')){
+    var indexBrand = BrandList.indexOf('VANS')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(VANS.innerText)
+  }
+})
+var VLONE = document.getElementById('VLONEL')
+VLONE.addEventListener('click', function(){
+  if (BrandList.includes('VLONE')){
+    var indexBrand = BrandList.indexOf('VLONE')
+    BrandList.splice(indexBrand, 1)
+  } else {
+    BrandList.push(VLONE.innerText)
+  }
+  console.log(BrandList)
+})
+
 var adjDiv = document.getElementById("adjust")
 var branDiv = document.getElementById("bran")
 var brand_list = document.getElementById("brand-list")
 
+var divCount = brand_list.getElementsByTagName("div");
+
 function onTyping() {
   var search_brands = document.getElementById("search-brands")
   var filter = search_brands.value.toUpperCase();
-  var divCount = brand_list.getElementsByTagName("div");
   
   var label, txtValue
+  
 
   for (i = 0; i < divCount.length; i++) {
     label = divCount[i].getElementsByTagName("label")[0];
@@ -1237,6 +1503,16 @@ myAnchor.addEventListener('click', function() {
 myAnchor2.addEventListener('click', function() {
   branDiv.classList.add('hidden')
   adjDiv.classList.remove('hidden')
+  var brandsMain = BrandList.join(', ')
+  if (BrandList[0]){
+    if (BrandList.length < 2){
+    myAnchor.innerText = brandsMain.slice(0, 14)
+    } else {
+      myAnchor.innerText = brandsMain.slice(0, 14) + "..."
+    }
+  } else {
+    myAnchor.innerText = "Всё"
+  }
 })
 
 myAnchor3.addEventListener('click', function() {

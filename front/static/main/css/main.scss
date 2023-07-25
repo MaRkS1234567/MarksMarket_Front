@@ -335,6 +335,10 @@ body {
     margin-left: 7px;
   }
 
+  .checked {
+    position: inherit;
+  }
+
   .plus:hover {
     background-color: #fff;
     color: #C940FC;
@@ -852,7 +856,7 @@ label span {
   text-align: center;
   font-size: 12px;
   width: 50%;
-  padding-top: 7.5px;
+  padding-top: 6px;
   padding-left: 16px;
 }
 

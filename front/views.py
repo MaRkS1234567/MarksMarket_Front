@@ -7,7 +7,7 @@ def shop(request):
 
 def adjustments(request):
     context = {}
-    return render(request, 'main/adjustments.html')
+    return render(request, 'main/adjustments.html', context)
 
 def about(request):
     context = {}
